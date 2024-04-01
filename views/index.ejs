@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>Weather App🌦️</h1>
+    <form action="/search" method="post">
+        <label for="city">Enter City Name</label>
+        <input type="text" id="city" name="city" required>
+        <input type="submit" value="submit">
+    </form>
+    <% if(data && data.name){ %>
+        <h2>Weather in <%= data.name %>⛅</h2>
+        <ul>
+            <li>Temperature: <%= data.main.temp %> °C 🌡️</li>
+            <li>Feels Like: <%= data.main.feels_like %> °C 🌡️</li>
+            <li>Description: <%= data.weather[0].description %> ☁️</li>
+            <li>Wind Speed: <%= data.wind.speed %> m/s 🌬️</li>
+            <li>Humidity: <%= data.main.humidity %> % 💧</li>
+            <li>Pressure: <%= data.main.pressure %> hPa 🌬️</li>
+        </ul>
+    <% } else { %>
+        <p>No weather data available.☹️</p>
+    <% } %>
+</body>
+</html>
