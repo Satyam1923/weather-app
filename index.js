@@ -25,6 +25,7 @@ app.post("/search", async (req, res) => {
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a0d3b55486b2f022d3bc97adb89cc47e&units=metric`
         );
         const weatherData = response2.data;
+        console.log(response2.data);
         res.render("index.ejs", {
             data: weatherData,
         });
