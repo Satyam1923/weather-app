@@ -7,13 +7,16 @@
     <title>Weather App</title>
 </head>
 <body>
+
     <h1>Weather App🌦️</h1>
     <form action="/search" method="post">
         <label for="city">Enter City Name</label>
         <input type="text" id="city" name="city" required>
         <input type="submit" value="submit">
     </form>
-    <% if(data && data.name){ %>
+    <% if(data === 'invalid') {%>
+        <p>Invalid City Name.&#128533;</p>
+    <%} else if(data && data.name){ %>
         <h2>Weather in <%= data.name %>⛅</h2>
         <ul>
             <li>Temperature: <%= data.main.temp %> °C 🌡️</li>
